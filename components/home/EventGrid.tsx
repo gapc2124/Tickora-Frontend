@@ -40,7 +40,7 @@ export default function EventGrid({ title, subtitle, events, viewAllLink }: Even
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {events.map((event) => (
-          <EventCard key={event.id} event={event} />
+          <EventCard key={event._id || event.id} event={event} />
         ))}
       </div>
       
