@@ -75,7 +75,7 @@ export default function Navbar() {
                 <div className="flex items-center gap-4">
                   <Link 
                     href="/eventos/crear"
-                    className="hidden lg:flex items-center justify-center bg-accent/10 hover:bg-accent text-accent hover:text-white px-4 py-2 rounded-full text-sm font-semibold transition-all border border-accent/20 hover:border-accent"
+                    className="flex items-center justify-center bg-accent/10 hover:bg-accent text-accent hover:text-white px-4 py-2 rounded-full text-sm font-semibold transition-all border border-accent/20 hover:border-accent"
                   >
                     Crear Evento
                   </Link>
