@@ -41,10 +41,10 @@ export default function HeroCarousel({ events }: HeroCarouselProps) {
         >
           {/* Background Image with Overlay */}
           <div className="absolute inset-0 bg-zinc-800 flex items-center justify-center">
-            {event.imageUrl ? (
+            {event.image_url ? (
               <Image
-                src={event.imageUrl}
-                alt={event.title || 'Evento Destacado'}
+                src={event.image_url}
+                alt={event.titulo || 'Evento Destacado'}
                 fill
                 sizes="100vw"
                 className="object-cover"
@@ -55,7 +55,7 @@ export default function HeroCarousel({ events }: HeroCarouselProps) {
               />
             ) : (
               <div className="absolute inset-0 bg-gradient-to-tr from-black to-accent flex items-center justify-center">
-                <span className="text-white/20 font-bold text-6xl uppercase">{event.title ? event.title.substring(0,3) : 'EVT'}</span>
+                <span className="text-white/20 font-bold text-6xl uppercase">{event.titulo ? event.titulo.substring(0,3) : 'EVT'}</span>
               </div>
             )}
             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/20"></div>
@@ -68,17 +68,17 @@ export default function HeroCarousel({ events }: HeroCarouselProps) {
                 Evento Destacado
               </span>
               <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight shadow-sm max-w-4xl">
-                {event.title}
+                {event.titulo}
               </h2>
               
               <div className="flex flex-wrap items-center gap-6 text-zinc-300 mb-8">
                 <div className="flex items-center gap-2">
                   <Calendar className="w-5 h-5 text-accent" />
-                  <span className="text-sm md:text-base">{event.date}</span>
+                  <span className="text-sm md:text-base">{event.fecha_evento ? new Date(event.fecha_evento).toLocaleDateString() : 'Fecha por definir'}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <MapPin className="w-5 h-5 text-accent" />
-                  <span className="text-sm md:text-base">{event.location}</span>
+                  <span className="text-sm md:text-base">{event.lugar}</span>
                 </div>
               </div>
 
