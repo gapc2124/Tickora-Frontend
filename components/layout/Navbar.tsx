@@ -73,6 +73,12 @@ export default function Navbar() {
               
               {user ? (
                 <div className="flex items-center gap-4">
+                  <Link 
+                    href="/eventos/crear"
+                    className="hidden lg:flex items-center justify-center bg-accent/10 hover:bg-accent text-accent hover:text-white px-4 py-2 rounded-full text-sm font-semibold transition-all border border-accent/20 hover:border-accent"
+                  >
+                    Crear Evento
+                  </Link>
                   <div className="flex items-center gap-2 text-sm font-semibold text-zinc-900 dark:text-white">
                     <div className="w-8 h-8 rounded-full bg-accent/20 text-accent flex items-center justify-center border border-accent/20">
                       {user.nombre.charAt(0).toUpperCase()}
