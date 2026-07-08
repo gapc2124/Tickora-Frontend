@@ -7,8 +7,9 @@ import { mockCategories } from '@/lib/mockData';
 
 // Petición directa a la base de datos (NestJS)
 async function getEvents() {
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
   try {
-    const res = await fetch('http://localhost:3000/eventos', { 
+    const res = await fetch(`${apiUrl}/eventos`, { 
       cache: 'no-store' // Para que siempre traiga datos frescos
     });
     if (!res.ok) return [];
