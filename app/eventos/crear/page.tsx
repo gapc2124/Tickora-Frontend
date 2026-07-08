@@ -14,6 +14,7 @@ export default function CrearEventoPage() {
   
   const [formData, setFormData] = useState({
     titulo: '',
+    artista: '',
     descripcion: '',
     lugar: '',
     fecha_evento: '',
@@ -86,6 +87,7 @@ export default function CrearEventoPage() {
       // PASO 2: Crear Evento en MongoDB
       const eventPayload = {
         titulo: formData.titulo,
+        artista: formData.artista || 'Artista por definir', // Por si acaso
         descripcion: formData.descripcion,
         lugar: formData.lugar,
         fecha_evento: new Date(formData.fecha_evento).toISOString(),
@@ -181,7 +183,7 @@ export default function CrearEventoPage() {
               </div>
 
               {/* TÍTULO */}
-              <div className="sm:col-span-2">
+              <div className="sm:col-span-1">
                 <label htmlFor="titulo" className="flex items-center gap-2 text-sm font-semibold text-zinc-700 dark:text-zinc-300 mb-2">
                   <Type className="w-4 h-4 text-accent" />
                   Título del Evento
@@ -195,6 +197,24 @@ export default function CrearEventoPage() {
                   onChange={handleChange}
                   className="block w-full rounded-xl border-zinc-300 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-800/50 text-zinc-900 dark:text-white shadow-sm focus:border-accent focus:ring-accent sm:text-sm px-4 py-3 transition-colors"
                   placeholder="Ej. Concierto de Rock en Vivo"
+                />
+              </div>
+
+              {/* ARTISTA */}
+              <div className="sm:col-span-1">
+                <label htmlFor="artista" className="flex items-center gap-2 text-sm font-semibold text-zinc-700 dark:text-zinc-300 mb-2">
+                  <Users className="w-4 h-4 text-accent" />
+                  Artista o Presentador
+                </label>
+                <input
+                  type="text"
+                  name="artista"
+                  id="artista"
+                  required
+                  value={formData.artista}
+                  onChange={handleChange}
+                  className="block w-full rounded-xl border-zinc-300 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-800/50 text-zinc-900 dark:text-white shadow-sm focus:border-accent focus:ring-accent sm:text-sm px-4 py-3 transition-colors"
+                  placeholder="Ej. The Beatles"
                 />
               </div>
 
